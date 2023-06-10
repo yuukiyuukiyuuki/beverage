@@ -1,0 +1,20 @@
+ <table class='table'>
+        <tr>
+          <% if customer.image.attached? %>
+            <%= image_tag customer.image %>
+          <% else %>
+            <%= image_tag 'no_image' %>
+          <% end %>
+        </tr>
+        <tr>
+          <th>name</th>
+          <th><%= customer.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= customer.introduction %></th>
+        </tr>
+      </table>
+      <div class='row'>
+        <%= link_to '編集', edit_customer_path(customer) %>
+      </div>
