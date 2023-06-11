@@ -1,1 +1,23 @@
-<h1>ドリンクの新規投稿</h1>
+<div class="container">
+  <h1>ドリンクの新規投稿</h1>
+
+  <%= form_with model: @drink, url: drinks_path, local: true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    <div class="field">
+      ドリンク名<br/>
+      <%= f.text_field :name, class: "form-control", style: "border-color: #ccc; width: 250px; margin: 15px 0px;" %>
+    </div>
+
+    <div class="field">
+      ドリンクの画像<br/>
+      <%= f.file_field :image, accept: "image/*", style: "margin: 10px 0px;" %>
+    </div>
+
+    <div class="field">
+      ドリンクの説明文<br/>
+      <%= f.text_area :introduction, class: "form-control", style: "border-color: #ccc; width: 250px; margin: 15px 0px;" %>
+    </div>
+
+    <p><%= f.submit "ドリンクの登録", class: "btn btn-outline-dark" %></p>
+  <% end %>
+</div>

@@ -1,1 +1,22 @@
-<h1>ドリンクの一覧</h1>
+<div class="container">
+  <div class="col">
+    <h1>ドリンクの一覧</h1>
+  </div>
+    <div class="drink">
+      <% @drinks.each do |drink| %>
+      <div class="card text-dark h-100">
+        <%= link_to drink_path(drink.id) do %>
+        <% if drink.image.attached? %>
+        　<%= image_tag drink.image %>
+        <% else %>
+        　<%= image_tag 'no_image.jpg' %>
+        <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= drink.name %></h5>
+        <p class="card-text">いいね</p>
+      </div>
+      </div>
+        <% end %>
+    </div>
+      <% end %>
+</div>

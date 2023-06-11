@@ -5,5 +5,33 @@
      <%= render 'info', customer: @customer %>
      <%= link_to '新規投稿', new_drink_path %>
     </div>
+    <div class='col-md-8 offset-md-1'>
+      <h2>ドリンク</h2>
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>写真</th>
+            <th>名前</th>
+            <th>説明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @drinks.each do |drink| %>
+          <tr>
+            <td><%= link_to drink_path(drink.customer) do %>
+                  <% if drink.image.attached? %>
+        　          <%= image_tag drink.image %>
+                  <% else %>
+        　          <%= image_tag 'no_image.jpg' %>
+                  <% end %>
+            </td>
+            <td><%= link_to drink.name,drink %></td>
+            <td><%= drink.introduction %></td>
+          </tr>
+          <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

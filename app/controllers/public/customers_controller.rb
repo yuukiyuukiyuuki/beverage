@@ -5,9 +5,9 @@ class Public::CustomersController < ApplicationController
   end
 
   def show
-    
-    @drink=Drink.new
     @customer=Customer.find(params[:id])
+    @drinks=@customer.drinks
+    @drink=Drink.new
   end
 
   def edit
