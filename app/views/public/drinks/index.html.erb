@@ -2,10 +2,11 @@
   <div class="col">
     <h1>ドリンクの一覧</h1>
   </div>
-    <div class="drink">
-      <% @drinks.each do |drink| %>
-      <div class="card text-dark h-100">
+  <div class="d-flex flex-wrap ">
+    <% @drinks.each do |drink| %>
+      <div class="col-3 my-2">
         <%= link_to drink_path(drink.id) do %>
+      <div class="card text-dark h-100">
         <% if drink.image.attached? %>
         　<%= image_tag drink.image %>
         <% else %>
@@ -13,10 +14,11 @@
         <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= drink.name %></h5>
-        <p class="card-text">いいね</p>
+        <p class="card-text"><%= drink.introduction %></p>
       </div>
       </div>
         <% end %>
     </div>
       <% end %>
+  </div>
 </div>

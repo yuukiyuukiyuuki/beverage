@@ -20,13 +20,15 @@
           <tr>
             <td><%= link_to drink_path(drink.customer) do %>
                   <% if drink.image.attached? %>
-        　          <%= image_tag drink.image %>
+        　          <%= image_tag drink.image, size: "100x100" %>
                   <% else %>
         　          <%= image_tag 'no_image.jpg' %>
                   <% end %>
             </td>
             <td><%= link_to drink.name,drink %></td>
             <td><%= drink.introduction %></td>
+            <td><%= link_to '編集', edit_drink_path(drink.id), class:"btn btn-outline-dark" %></td>
+            <td><%= link_to '削除', drink_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           </tr>
           <% end %>
           <% end %>
