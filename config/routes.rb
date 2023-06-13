@@ -19,9 +19,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     #顧客
     resources :customers, only: [:index, :show, :edit, :update]
 
-    #いいね
-    resource :favorites, only: [:create, :destroy]
-
     #フォロー
     get 'followings' => 'relationships#followings', as: 'followings'
 
@@ -31,6 +28,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     #検索
     get "search" => "searches#search"
 
+  end
+
+  resources :drinks do
+    #いいね
+    resource :favorites, only: [:create, :destroy]
   end
 
   #管理者部分

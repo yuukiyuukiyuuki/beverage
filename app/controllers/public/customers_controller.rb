@@ -1,7 +1,7 @@
 class Public::CustomersController < ApplicationController
 
   def index
-    @drink=Drink.new
+    @customers=Customer.all
   end
 
   def show

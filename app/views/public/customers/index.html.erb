@@ -1,1 +1,24 @@
-<h1>INDEX</h1>
+<div class="container">
+  <div class="col">
+    <h1>会員一覧</h1>
+  </div>
+  <div class="d-flex flex-wrap ">
+    <% @customers.each do |customer| %>
+      <div class="col-3 my-2">
+        <%= link_to customer_path(customer.id) do %>
+      <div class="card text-dark h-100">
+        <% if customer.image.attached? %>
+        　<%= image_tag customer.image %>
+        <% else %>
+        　<%= image_tag 'no_image.jpg' %>
+        <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= customer.name %></h5>
+        <p class="card-text"><%= customer.introduction %></p>
+      </div>
+      </div>
+        <% end %>
+    </div>
+      <% end %>
+  </div>
+</div>

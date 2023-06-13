@@ -23,7 +23,17 @@
         <dt>ドリンクの説明</dt>
           <dd> <%= @drink.introduction %></dd><br>
 
-          <dd>いいね</dd><br>
+          <!--<dd>-->
+          <!--  <%#<% if @drink.favorites(current_customer)? %>-->
+          <!--    <%#<%= link_to drink_favorites_path(@drink_id), method: :delete do %>-->
+          <!--      <span style="color:red;">❤︎</span>-->
+          <!--    <%#<% end %>-->
+          <!--    <%#<% else %>-->
+          <!--    <%#<%= link_to drink_favorites_path(@drink.id), method: :post do %>-->
+          <!--      <span>❤︎</span>-->
+          <!--    <%#<% end %>-->
+          <!--  <%#<% end %>-->
+          <!--</dd><br>-->
 
           <dd>コメント</dd>
       </dl>

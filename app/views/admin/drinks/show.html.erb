@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>ドリンクの詳細</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <br>
+        <td>
+          <% if @drink.image.attached? %>
+        　  <%= image_tag @drink.image, size: "300x300" %>
+          <% else %>
+        　  <%= image_tag 'no_image.jpg', size: "300x300" %>
+          <% end %>
+        </td>
+    </div>
+    <div class="col">
+      <dl class="dl">
+        <dt>ドリンク名</dt>
+          <dd><%= @drink.name %></dd>
+        <dt>ドリンクの説明</dt>
+          <dd> <%= @drink.introduction %></dd><br>
+          <!--<dd>-->
+          <!--  <%#<% if @drink.favorite?(customer) %>-->
+          <!--    <%#<%= link_to drink_favorite_path(@drink.id), method: :delete do %>-->
+          <!--      <span style="color:red;">❤︎</span>-->
+          <!--    <%#<% end %>-->
+          <!--    <%#<% else %>-->
+          <!--    <%#<%= link_to drink_favorites_path(@drink.id), method: :post do %>-->
+          <!--      <span>❤︎</span>-->
+          <!--    <%#<% end %>-->
+          <!--  <%#<% end %>-->
+          <!--</dd><br>-->
+          <dd>コメント</dd>
+          <dd>削除ボタン</dd>
+      </dl>
+    </div>
+  </div>
+</div>

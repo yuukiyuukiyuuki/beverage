@@ -25,8 +25,9 @@ class Public::DrinksController < ApplicationController
 
   def edit
     @customer = Customer.find(params[:id])
-    if @customer.id != sign_in_cusotmer
+    if @customer.id != current_customer
       redirect_to customer_path(customer.id)
+    end
   end
 
   def update
@@ -43,11 +44,11 @@ class Public::DrinksController < ApplicationController
   def destroy
     @drink = Drink.find(params[:id])
     @drink.destroy
-    redirect_to customer_path
+    redirect_to customer_path(customer.id)
   end
 
   private
     def drink_params
-     params.require(:drink).permit(:customer_id, :name, :introduction, :comment, :image)
+     params.require(:drink).permit(:customer_id, :name, :introduction, :image)
    end
 end
