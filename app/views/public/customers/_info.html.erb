@@ -1,7 +1,7 @@
  <table class='table'>
         <tr>
           <% if customer.image.attached? %>
-            <%= image_tag customer.image %>
+            <%= image_tag customer.image, size: "100x100" %>
           <% else %>
             <%= image_tag 'no_image' %>
           <% end %>
@@ -16,5 +16,5 @@
         </tr>
       </table>
       <div class='row'>
-        <%= link_to '編集', edit_customer_path(customer) %>
+        <%= link_to '編集', edit_customer_path(customer), class:"btn btn-outline-dark" %>
       </div>

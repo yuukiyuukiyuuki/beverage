@@ -24,18 +24,19 @@ class Public::DrinksController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
-    if @customer.id != current_customer
-      redirect_to customer_path(customer.id)
+    @drink = Drink.find(params[:id])
+    @customer = current_customer
+    if @drink.customer_id != current_customer.id
+      redirect_to customer_path(@customer.id)
     end
   end
 
   def update
-    @customer = Customer.find(params[:id])
-    @customer.update(customer_params)
-    if @user.save
+    @drink = Drink.find(params[:id])
+    @drink.update(drink_params)
+    if @drink.save
       flash[:notice] = "You have updated user successfully."
-      redirect_to customer_path(customer.id)
+      redirect_to drink_path(@drink)
     else
       render :edit
     end
@@ -44,7 +45,7 @@ class Public::DrinksController < ApplicationController
   def destroy
     @drink = Drink.find(params[:id])
     @drink.destroy
-    redirect_to customer_path(customer.id)
+    redirect_to customer_path(current_customer)
   end
 
   private

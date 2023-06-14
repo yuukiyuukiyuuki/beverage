@@ -1,0 +1,24 @@
+<h2>検索結果</h2>
+
+<table class="table table-hover table-inverse">
+  <!--対象がCustomerの時 -->
+  <% if @range == "Customer" %>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+   <!--対象がDrinkの時 -->
+    <tbody>
+      <% @drinks.each do |drink| %>
+        <tr>
+          <td><%= drink.name %></td>
+          <td><%= drink.introduction %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>
