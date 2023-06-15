@@ -1,14 +1,15 @@
 class Public::FavoritesController < ApplicationController
+  before_action :authenticate_customer!
 
   def create
-  @drink_favorite = Favorite.new(customer_id: current_customer.id, drink_id: params[:drink_id])
-  @drink_favorite.save
-  redirect_to drink_path(params[:drink_id])
+    @drink = Drink.find(params[:drink_id])
+    favorite = current_customer.favorites.new(drink_id: @drink.id)
+    favorite.save
   end
 
   def destroy
-  @drink_favorite = Favorite.find_by(customer_id: current_customer.id, drink_id: params[:drink_id])
-  @drink_favorite.destroy
-  redirect_to drink_path(params[:drink_id])
+    @drink = Drink.find(params[:drink_id])
+    favorite = current_customer.favorites.find_by(drink_id: @drink.id)
+    favorite.destroy
   end
 end

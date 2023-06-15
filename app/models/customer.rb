@@ -8,6 +8,7 @@ class Customer < ApplicationRecord
   has_many :drinks, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :relationships
+  has_many :drink_comments, dependent: :destroy
 
   def self.looks(search, word)
     if search == "perfect_match"

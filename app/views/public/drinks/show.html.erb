@@ -19,7 +19,6 @@
       <dl class="dl">
         <dt>ドリンク名</dt>
           <dd><%= @drink.name %></dd>
-
         <dt>ドリンクの説明</dt>
           <dd> <%= @drink.introduction %></dd><br>
           <!--いいね機能 -->
@@ -34,7 +33,33 @@
               <% end %>
             <% end %>
           </dd><br>
-          <dd>コメント</dd>
+    <!--コメント-->
+    <table>
+      <tbody>
+        <% @drink.drink_comments.each do |drink_comment| %>
+      <tr>
+        <td>
+          <%= link_to customer_path(drink_comment.customer) do %>
+          <%= image_tag drink_comment.customer.image, size:"100x100" %><br>
+          <%= drink_comment.customer.name %>
+          <% end %>
+        </td>
+        <td><%= drink_comment.comment %></td>
+        <td>
+          <% if drink_comment.customer == current_customer %>
+           <%= link_to "Destroy", drink_drink_comment_path(drink_comment.drink, drink_comment), method: :delete, class: "btn btn-danger pull-right", remote: true %>
+          <% end %>
+        </td>
+      </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <!-- コメントフォーム -->
+ <%= form_with model: [@drink, @drink_comment],url: drink_drink_comments_path(@drink), method: :post, local: true do |f| %>
+    <%= f.text_area :comment,class: "w-100  comment-textarea" %>
+    <br><%= f.submit "送信" %>
+  <% end %>
+
       </dl>
     </div>
   </div>

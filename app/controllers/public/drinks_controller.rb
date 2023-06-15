@@ -6,6 +6,8 @@ class Public::DrinksController < ApplicationController
 
   def show
     @drink = Drink.find(params[:id])
+    @drink_comment = DrinkComment.new
+    @customer = @drink.customer
   end
 
   def new

@@ -14,25 +14,24 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     root to: 'homes#top'
 
     #ドリンク
-    resources :drinks
+    resources :drinks do
+      #コメント
+      resources :drink_comments, only: [:create,:destroy]
+        #いいね
+       resource :favorites, only: [:create, :destroy]
+    end
 
     #顧客
-    resources :customers, only: [:index, :show, :edit, :update]
-
-    #フォロー
-    get 'followings' => 'relationships#followings', as: 'followings'
-
-    #フォロワー
-    get 'followers' => 'relationships#followers', as: 'followers'
+    resources :customers, only: [:index, :show, :edit, :update] do
+      #フォロー、フォロワー
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
 
     #検索
     get "search" => "searches#search"
 
-  end
-
-  resources :drinks do
-    #いいね
-    resource :favorites, only: [:create, :destroy]
   end
 
   #管理者部分
