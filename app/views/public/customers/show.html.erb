@@ -18,7 +18,7 @@
         <tbody>
           <% @drinks.each do |drink| %>
           <tr>
-            <td><%= link_to drink_path(drink.customer) do %>
+            <td><%= link_to drink_path(drink) do %>
                   <% if drink.image.attached? %>
         　          <%= image_tag drink.image, size: "100x100" %>
                   <% else %>

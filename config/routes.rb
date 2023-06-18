@@ -9,6 +9,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
+  #ゲスト
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'customers/sessions#guest_sign_in'
+  end
+
   #顧客部分
   scope module: :public do
     root to: 'homes#top'
@@ -18,16 +23,20 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       #コメント
       resources :drink_comments, only: [:create,:destroy]
         #いいね
-       resource :favorites, only: [:create, :destroy]
+        resource :favorites, only: [:create, :destroy]
     end
 
     #顧客
     resources :customers, only: [:index, :show, :edit, :update] do
+      member do
+        get :favorites
+      end
+
       #フォロー、フォロワー
       resource :relationships, only: [:create, :destroy]
-      get 'followings' => 'relationships#followings', as: 'followings'
-      get 'followers' => 'relationships#followers', as: 'followers'
-    end
+        get 'followings' => 'relationships#followings', as: 'followings'
+        get 'followers' => 'relationships#followers', as: 'followers'
+      end
 
     #検索
     get "search" => "searches#search"
@@ -38,10 +47,17 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   namespace :admin do
 
     #商品
-     resources :drinks, only: [:index, :show, :destroy]
+    resources :drinks, only: [:index, :show, :destroy]
 
     #顧客
-     resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update] do
+      collection do
+        #退会確認画面
+        get 'confirm_withdraw'
+        #退会処理
+        patch 'withdraw'
+     end
+    end
 
   end
 

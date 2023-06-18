@@ -12,7 +12,17 @@ class Admin::CustomersController < ApplicationController
      @customer = Customer.find(params[:id])
   end
 
-  def update
+  # def update
+  # end
+
+  def confirm_withdraw
+  end
+
+  def withdraw
+    @customer = Customer.find(params[:customer_id])
+    @customer.update(is_deleted: true)
+    reset_session
+    redirect_to root_path, notice: 'Successfully withdraw from Ecommerce'
   end
 
    private

@@ -1,5 +1,5 @@
 class Favorite < ApplicationRecord
 
-   belongs_to :customers
-   belongs_to :drinks
+   belongs_to :customer
+   belongs_to :drink
 end

@@ -9,7 +9,7 @@ class Drink < ApplicationRecord
   validates :introduction, presence: true, length: { maximum: 255 }
 
   def favorited?(customer)
-   favorites.where(customer_id: customer.id).exists?
+    favorites.where(customer_id: customer.id).exists?
   end
 
   def self.looks(search, word)

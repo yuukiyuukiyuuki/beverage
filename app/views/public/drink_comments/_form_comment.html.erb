@@ -1,4 +1,0 @@
-<%= form_with model: [drink, drink_comment],url: drink_drink_comments_path(drink, drink_comment), method: :post, local: false do |f| %>
-  <%= f.text_area :comment,class: "w-100  comment-textarea" %>
-    <br><%= f.submit "送信" %>
- <% end %>

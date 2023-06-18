@@ -1,0 +1,6 @@
+<div class="container">
+  <% if admin_signed_in?  %>
+  退会確認ページ
+	  <p><%= link_to "退会", withdraw_admin_customers_path(customer_id: params[:customer_id]), method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %></p>
+  <% end %>
+</div>
