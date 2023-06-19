@@ -20,20 +20,8 @@
         <dt>ドリンク名</dt>
           <dd><%= @drink.name %></dd>
         <dt>ドリンクの説明</dt>
-          <dd> <%= @drink.introduction %></dd><br>
-          <!--<dd>-->
-          <!--  <%#<% if @drink.favorite?(customer) %>-->
-          <!--    <%#<%= link_to drink_favorite_path(@drink.id), method: :delete do %>-->
-          <!--      <span style="color:red;">❤︎</span>-->
-          <!--    <%#<% end %>-->
-          <!--    <%#<% else %>-->
-          <!--    <%#<%= link_to drink_favorites_path(@drink.id), method: :post do %>-->
-          <!--      <span>❤︎</span>-->
-          <!--    <%#<% end %>-->
-          <!--  <%#<% end %>-->
-          <!--</dd><br>-->
-          <dd>コメント</dd>
-          <dd>削除ボタン</dd>
+          <dd><%= @drink.introduction %></dd><br>
+          <dd><%= link_to '削除', admin_drink_path(@drink.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></dd>
       </dl>
     </div>
   </div>

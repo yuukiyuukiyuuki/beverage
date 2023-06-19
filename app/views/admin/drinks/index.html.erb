@@ -8,13 +8,13 @@
         <%= link_to admin_drink_path(drink.id) do %>
       <div class="card text-dark h-100">
         <% if drink.image.attached? %>
-        　<%= image_tag drink.image %>
+        　<%= image_tag drink.image, size: "200x200" %>
         <% else %>
         　<%= image_tag 'no_image.jpg' %>
         <% end %>
       <div class="card-body">
-        <h5 class="card-title"><%= drink.name %></h5>
-        <p class="card-text"><%= drink.introduction %></p>
+        <h5 class="card-title">ドリンク名：<%= drink.name %></h5>
+        <p class="card-text">説明文：<%= drink.introduction %></p>
       </div>
       </div>
         <% end %>

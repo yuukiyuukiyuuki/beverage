@@ -1,7 +1,7 @@
 class Public::DrinksController < ApplicationController
 
   def index
-    @drinks = Drink.all
+    @drinks = Drink.all.page(params[:page]).per(8)
   end
 
   def show
@@ -47,7 +47,7 @@ class Public::DrinksController < ApplicationController
   def destroy
     @drink = Drink.find(params[:id])
     @drink.destroy
-    redirect_to customer_path(current_customer)
+    redirect_to drink_path(current_customer)
   end
 
   private

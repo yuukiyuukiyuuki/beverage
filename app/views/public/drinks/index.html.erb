@@ -8,18 +8,19 @@
         <%= link_to drink_path(drink.id) do %>
       <div class="card text-dark h-100">
         <% if drink.image.attached? %>
-        　<%= image_tag drink.image, size: "200x200" %>
+        　<%= image_tag drink.image, size: "150x150" %>
         <% else %>
         　<%= image_tag 'no_image.jpg' %>
         <% end %>
         <% end %>
       <div class="card-body">
-        <h5 class="card-title"><%= drink.name %></h5>
-        <p class="card-text"><%= drink.introduction %></p>
+        <h5 class="card-title">ドリンク名：<%= drink.name %></h5>
+        <p class="card-text">説明文：<%= drink.introduction %></p>
         <p class="card-text">コメント件数 : <%= drink.drink_comments.count %></p>
       </div>
       </div>
     </div>
       <% end %>
   </div>
+    <h4><%= paginate @drinks %></h4>
 </div>

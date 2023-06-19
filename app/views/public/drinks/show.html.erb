@@ -24,11 +24,11 @@
           <!--いいね機能 -->
           <dd>
             <% if @drink.favorited?(current_customer) %>
-              <%= link_to drink_favorites_path(@drink.id), method: :delete, remote: true do %>
+              <%= link_to drink_favorites_path(@drink.id), method: :delete, local: true do %>
                 ♥<%= @drink.favorites.count %>
               <% end %>
             <% else %>
-              <%= link_to drink_favorites_path(@drink.id), method: :post, remote: true do %>
+              <%= link_to drink_favorites_path(@drink.id), method: :post, local: true do %>
                 ♡<%= @drink.favorites.count %>
               <% end %>
             <% end %>
@@ -47,7 +47,7 @@
         <td><%= drink_comment.comment %></td>
         <td>
           <% if drink_comment.customer == current_customer %>
-           <%= link_to "Destroy", drink_drink_comment_path(drink_comment.drink, drink_comment), method: :delete, class: "btn btn-danger pull-right", remote: true %>
+           <%= link_to "削除", drink_drink_comment_path(drink_comment.drink, drink_comment), method: :delete, class: "btn btn-danger pull-right", local: true %>
           <% end %>
         </td>
       </tr>

@@ -8,14 +8,14 @@
         <%= link_to customer_path(customer.id) do %>
       <div class="card text-dark h-100">
         <% if customer.image.attached? %>
-        　<%= image_tag customer.image, size: "100x100" %>
+        　<%= image_tag customer.image, size: "150x150" %>
         <% else %>
         　<%= image_tag 'no_image.jpg' %>
         <% end %>
         <% end %>
       <div class="card-body">
-        <h5 class="card-title"><%= customer.name %></h5>
-        <p class="card-text"><%= customer.introduction %></p>
+        <h5 class="card-title">名前：<%= customer.name %></h5>
+        <p class="card-text">自己紹介：<%= customer.introduction %></p>
         <p class="card-text">フォロー数: <%= customer.followings.count %></p>
         <p class="card-text">フォロワー数: <%= customer.followers.count %></p>
         <p class="card-text">

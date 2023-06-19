@@ -50,7 +50,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :drinks, only: [:index, :show, :destroy]
 
     #顧客
-    resources :customers, only: [:index, :show, :edit, :update] do
+    resources :customers, only: [:index, :show, :edit] do
       collection do
         #退会確認画面
         get 'confirm_withdraw'

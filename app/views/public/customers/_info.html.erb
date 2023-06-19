@@ -16,12 +16,18 @@
   </tr>
 </table>
   <% if customer == current_customer %>
-    <div class='row'>
+    <table class='table'>
+      <tr>
+        <th>フォロー</th>
+        <th><%= link_to customer.followings.count,customer_followings_path(customer) %></th>
+      </tr>
+      <tr>
+        <th>フォロワー</th>
+        <th><%= link_to customer.followers.count,customer_followers_path(customer) %></th>
+        </tr>
+    </table>
       <%= link_to '編集', edit_customer_path(customer), class:"btn btn-outline-dark" %>
-    </div>
-    <div class='row'>
       <%=link_to"お気に入り", favorites_customer_path(customer), class:"btn btn-outline-dark" %>
-    </div>
   <% else %>
     <div class='row'>
       <table class='table'>

@@ -11,6 +11,7 @@ class Public::DrinkCommentsController < ApplicationController
   def destroy
     DrinkComment.find_by(id: params[:id],drink_id: params[:drink_id]).destroy
     @drink = Drink.find(params[:drink_id])
+    redirect_to drink_path(@drink.id)
   end
 
    private
