@@ -24,9 +24,9 @@ class Customer < ApplicationRecord
     end
   end
 
-  # def active_for_authentication?
-  #   super && (self.is_deleted == false)
-  # end
+  def active_for_authentication?
+    super && (self.is_deleted != true) # nilが入る可能性があるため
+  end
 
   #検索時
   def self.looks(search, word)

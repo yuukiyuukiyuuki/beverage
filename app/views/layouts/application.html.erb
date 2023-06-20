@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'custom' %>
   </head>
 
   <header>
@@ -15,9 +15,16 @@
   </header>
 
   <body>
-    <div class="container">
+    <div class="container" id="flash_message">
       <%= render 'layouts/flash_messages' %>
     </div>
-    <%= yield %>
+      <%= yield %>
+    <footer class="bg-info text-center text-lg-start">
+      <div class="text-center p-3" style="background-color:#0097b2">
+          © 2023 SAMPLE:
+        <a class="text-dark" href="https://mdbootstrap.com/">BEVERAGE.com</a>
+      </div>
+    </footer>
   </body>
 </html>
+

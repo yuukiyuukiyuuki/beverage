@@ -1,15 +1,20 @@
-<h1>TOPページ</h1>
-<div class="container">
-  <div class="btn-wrapper col-10 mx-auto">
+<div class="card bg-dark text-white">
+  <img src="https://girlydrop.com/wp-content/uploads/post/p6619.jpg" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <h5 class="card-title">ドリンクの情報について</h5>
+    <p class="card-text">興味のあるドリンクを探せたり、ドリンクの投稿が出来ます。</p>
+    <p class="card-text">ドリンクの情報を共有しよう！</p>
+    <div class="btn-wrapper col-5 mx-auto">
     <div class="row">
-          <%= link_to 'Gest log in', customers_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+          <%= link_to 'ゲストログイン', customers_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
     </div>
     <div class="row">
-      <%= link_to 'Log in',new_customer_session_path,class: "btn btn-info btn-sm btn-block mb-3 log_in" %>
+      <%= link_to 'ログイン',new_customer_session_path,class: "btn btn-info btn-sm btn-block mb-3 log_in" %>
     </div>
     <div class="row">
-      <%= link_to 'Sign up',new_customer_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+      <%= link_to '新規登録',new_customer_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
     </div>
+  </div>
   </div>
 </div>
 

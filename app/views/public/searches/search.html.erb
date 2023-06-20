@@ -1,24 +1,58 @@
-<h2>検索結果</h2>
-
-<table class="table table-hover table-inverse">
-  <!--対象がCustomerの時 -->
-  <% if @range == "Customer" %>
-    <tbody>
-      <% @customers.each do |customer| %>
-        <tr>
-          <td><%= customer.name %></td>
+<div class="container">
+  <h2>検索結果</h2>
+  <table class="table table-bordered">
+    <!--対象がCustomerの時 -->
+    <% if @range == "Customer" %>
+      <thead>
+        <tr class="table-active">
+          <th>会員写真</th>
+          <th>会員名</th>
+          <th>自己紹介</th>
         </tr>
-      <% end %>
-    </tbody>
-  <% else %>
-   <!--対象がDrinkの時 -->
-    <tbody>
-      <% @drinks.each do |drink| %>
-        <tr>
-          <td><%= drink.name %></td>
-          <td><%= drink.introduction %></td>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td>
+              <%= link_to customer_path(customer.id) do %>
+              <% if customer.image.attached? %>
+        　      <%= image_tag customer.image, size: "100x100" %>
+              <% else %>
+        　      <%= image_tag 'no_image.jpg' %>
+              <% end %>
+              <% end %>
+            </td>
+            <td><%= customer.name %></td>
+            <td><%= customer.introduction %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    <% else %>
+     <!--対象がDrinkの時 -->
+     <thead>
+        <tr class="table-active">
+          <th>ドリンクの写真</th>
+          <th>ドリンク名</th>
+          <th>ドリンクの説明</th>
         </tr>
-      <% end %>
-    </tbody>
-  <% end %>
-</table>
+      </thead>
+      <tbody>
+        <% @drinks.each do |drink| %>
+          <tr>
+            <td>
+              <%= link_to drink_path(drink.id) do %>
+              <% if drink.image.attached? %>
+        　      <%= image_tag drink.image, size: "100x100" %>
+              <% else %>
+        　      <%= image_tag 'no_image.jpg' %>
+              <% end %>
+              <% end %>
+            </td>
+            <td><%= drink.name %></td>
+            <td><%= drink.introduction %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    <% end %>
+  </table>
+</div>
