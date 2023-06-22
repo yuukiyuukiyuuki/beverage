@@ -1,0 +1,58 @@
+<div class="container">
+  <h2>検索結果</h2>
+  <table class="table table-bordered">
+    <!--対象がCustomerの時 -->
+    <% if @range == "Customer" %>
+      <thead>
+        <tr class="table-active">
+          <th>会員写真</th>
+          <th>会員名</th>
+          <th>自己紹介</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td>
+              <%= link_to admin_customer_path(customer.id) do %>
+              <% if customer.image.attached? %>
+        　      <%= image_tag customer.image, size: "100x100" %>
+              <% else %>
+        　      <%= image_tag 'no_image.jpg' %>
+              <% end %>
+              <% end %>
+            </td>
+            <td><%= customer.name %></td>
+            <td><%= customer.introduction %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    <% else %>
+     <!--対象がDrinkの時 -->
+     <thead>
+        <tr class="table-active">
+          <th>ドリンクの写真</th>
+          <th>ドリンク名</th>
+          <th>ドリンクの説明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @drinks.each do |drink| %>
+          <tr>
+            <td>
+              <%= link_to admin_drink_path(drink.id) do %>
+              <% if drink.image.attached? %>
+        　      <%= image_tag drink.image, size: "100x100" %>
+              <% else %>
+        　      <%= image_tag 'no_image.jpg' %>
+              <% end %>
+              <% end %>
+            </td>
+            <td><%= drink.name %></td>
+            <td><%= drink.introduction %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    <% end %>
+  </table>
+</div>

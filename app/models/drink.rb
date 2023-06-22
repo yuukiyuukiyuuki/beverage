@@ -8,10 +8,12 @@ class Drink < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   validates :introduction, presence: true, length: { maximum: 255 }
 
+  #いいね機能
   def favorited?(customer)
     favorites.where(customer_id: customer.id).exists?
   end
 
+  #ドリンク検索時
   def self.looks(search, word)
     if search == "perfect_match"
       @drink = Drink.where("name LIKE?","#{word}")

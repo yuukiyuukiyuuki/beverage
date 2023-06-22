@@ -26,8 +26,10 @@
         <th><%= link_to customer.followers.count,customer_followers_path(customer) %></th>
         </tr>
     </table>
-      <%= link_to '編集', edit_customer_path(customer), class:"btn btn-outline-dark" %>
-      <%=link_to"お気に入り", favorites_customer_path(customer), class:"btn btn-outline-dark" %>
+    <div class="actions">
+      <%= link_to '編集', edit_customer_path(customer), class:"btn btn-info" %>
+      <%=link_to"お気に入り", favorites_customer_path(customer), class:"btn btn-info" %>
+    </div>
   <% else %>
     <div class='row'>
       <table class='table'>

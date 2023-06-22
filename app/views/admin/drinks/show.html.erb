@@ -21,7 +21,8 @@
           <dd><%= @drink.name %></dd>
         <dt>ドリンクの説明</dt>
           <dd><%= @drink.introduction %></dd><br>
-          <dd><%= link_to '削除', admin_drink_path(@drink.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></dd>
+          <dd><%= link_to '削除', admin_drink_path(@drink.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%></dd>
+          <dd><%= link_to '戻る', admin_drinks_path, class:"btn btn-info" %></dd>
       </dl>
     </div>
   </div>

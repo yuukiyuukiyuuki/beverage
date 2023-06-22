@@ -5,62 +5,28 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-4">
-      <br>
-        <td>
-          <% if @drink.image.attached? %>
-        　  <%= image_tag @drink.image, size: "300x300" %>
-          <% else %>
-        　  <%= image_tag 'no_image.jpg', size: "300x300" %>
-          <% end %>
-        </td>
-    </div>
+    <dl class="col-4">
+      <dt>
+        <% if @drink.image.attached? %>
+      　  <%= image_tag @drink.image, size: "300x300" %>
+        <% else %>
+      　  <%= image_tag 'no_image.jpg', size: "300x300" %>
+        <% end %>
+      </dt>
+      <dt>会員名：<%= @customer.name %></dt>
+    </dl>
     <div class="col">
       <dl class="dl">
         <dt>ドリンク名</dt>
           <dd><%= @drink.name %></dd>
         <dt>ドリンクの説明</dt>
           <dd> <%= @drink.introduction %></dd><br>
-          <!--いいね機能 -->
-          <dd>
-            <% if @drink.favorited?(current_customer) %>
-              <%= link_to drink_favorites_path(@drink.id), method: :delete, local: true do %>
-                <i class="far fa-heart">♥<%= @drink.favorites.count %></i>
-
-              <% end %>
-            <% else %>
-              <%= link_to drink_favorites_path(@drink.id), method: :post, local: true do %>
-                <i class="far fa-heart">♡<%= @drink.favorites.count %></i>
-
-              <% end %>
-            <% end %>
-          </dd><br>
-    <!--コメント機能-->
-    <table>
-      <tbody>
-        <% @drink.drink_comments.each do |drink_comment| %>
-        <tr>
-          <td>
-            <%= link_to customer_path(drink_comment.customer) do %>
-            <%= image_tag drink_comment.customer.image, size:"100x100" %><br>
-            <%= drink_comment.customer.name %>
-            <% end %>
-          </td>
-          <td><%= drink_comment.comment %></td>
-          <td>
-            <% if drink_comment.customer == current_customer %>
-             <%= link_to "削除", drink_drink_comment_path(drink_comment.drink, drink_comment), method: :delete, class: "btn btn-danger pull-right", local: true %>
-            <% end %>
-          </td>
-        </tr>
-          <% end %>
-      </tbody>
-    </table>
-      <!-- コメントフォーム -->
-      <%= form_with model: [@drink, @drink_comment],url: drink_drink_comments_path(@drink), method: :post, local: true do |f| %>
-      <%= f.text_area :comment,class: "w-100  comment-textarea" %>
-      <%= f.submit "送信" %><br>
-      <% end %>
+        <!--いいね機能 -->
+        <%= render 'drink_favorite', drink: @drink %>
+        <!--コメント機能-->
+        <%= render 'drink_comment', drink: @drink %>
+        <!-- コメントフォーム -->
+        <%= render 'form', drink: @drink %>
       </dl>
     </div>
   </div>

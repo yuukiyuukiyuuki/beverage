@@ -3,7 +3,9 @@
     <div class='col-md-3'>
       <h2>マイページ</h2>
      <%= render 'info', customer: @customer %><br>
-     <%= link_to '新規投稿', new_drink_path, class:"btn btn-outline-dark" %>
+    <div class="actions">
+     <%= link_to '新規投稿', new_drink_path, class:"btn btn-success" %>
+    </div>
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>ドリンク</h2>
@@ -27,7 +29,7 @@
             </td>
             <td><%= link_to drink.name,drink %></td>
             <td><%= drink.introduction %></td>
-            <td><%= link_to '編集', edit_drink_path(drink.id), class:"btn btn-outline-dark" %></td>
+            <td><%= link_to '編集', edit_drink_path(drink.id), class:"btn btn-info" %></td>
             <td><%= link_to '削除', drink_path(drink.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           </tr>
           <% end %>

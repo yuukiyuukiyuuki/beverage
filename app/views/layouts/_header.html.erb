@@ -34,16 +34,9 @@
           ログアウト
         <% end %>
       </li>
-    <!--検索 -->
-    <div class="search_form">
-      <%= form_with url: search_path, local: true, method: :get do |f| %>
-        <%= f.text_field :word %>
-        <%= f.select :range, options_for_select([['Customer'], ['Drink']]) %>
-        <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
-        <%= f.submit "検索", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-      <!-- 管理者のログイン時 -->
+      <!--会員の検索フォーム -->
+      <%= render 'layouts/customer_search_form' %>
+    <!-- 管理者のログイン時 -->
     <% elsif admin_signed_in? %>
       <li>
         <%=  link_to admin_customers_path,class: 'nav-link text-light' do %>
@@ -60,12 +53,15 @@
           ログアウト
         <% end %>
       </li>
+      <!--管理者の検索フォーム -->
+      <%= render 'layouts/admin_search_form' %>
+    <!--ログインしてない時 -->
     <% else %>
-      <!--<li>-->
-      <!--  <%#<%= link_to about_path,class: 'nav-link text-light' do %>-->
-      <!--    ゲストログイン-->
-      <!--  <%#<% end %>-->
-      <!--</li>-->
+      <li>
+        <%= link_to about_path,class: 'nav-link text-light' do %>
+          プロフィール
+        <% end %>
+      </li>
       <li>
         <%= link_to new_customer_session_path,class: 'nav-link text-light' do %>
           ログイン

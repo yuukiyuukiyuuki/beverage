@@ -1,4 +1,4 @@
-class Public::SearchesController < ApplicationController
+class Admin::SearchesController < ApplicationController
 
   def search
     @range = params[:range]

@@ -12,7 +12,7 @@
         <div>
           <%= link_to "退会させる", withdraw_admin_customers_path(customer_id: params[:customer_id]), method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
           <% end %>
-          <%= link_to "戻る", edit_admin_customer_path(@customer.id), class: "btn btn-outline-danger" %>
+          <%= link_to "戻る", edit_admin_customer_path(@customer.id), class: "btn btn-outline-info" %>
         </div>
       </div>
     </div>

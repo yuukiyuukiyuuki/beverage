@@ -12,13 +12,14 @@
         <% else %>
         　<%= image_tag 'no_image.jpg' %>
         <% end %>
+        <% end %>
       <div class="card-body">
         <h5 class="card-title">ドリンク名：<%= drink.name %></h5>
         <p class="card-text">説明文：<%= drink.introduction %></p>
       </div>
       </div>
-        <% end %>
     </div>
       <% end %>
   </div>
+    <h4><%= paginate @drinks %></h4>
 </div>

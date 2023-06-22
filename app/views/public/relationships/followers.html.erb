@@ -1,36 +1,36 @@
 <div class="container">
-  <h2>フォロワー会員</h>
-    <% if @customers.exists? %>
-      <table class="table table-bordered">
-        <thead>
-          <tr class="table-active">
-            <th>写真</th>
-            <th>名前</th>
-            <th>自己紹介</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @customers.each do |customer| %>
-            <tr>
-              <td>
-                <% if customer.image.attached? %>
-          　       <%= image_tag customer.image, size: "100x100" %>
-                <% else %>
-          　       <%= image_tag 'no_image.jpg' %>
-                <% end %>
-              </td>
-              <td><%= customer.name %></td>
-              <td><%= customer.introduction %></td>
-              <td>フォロー数: <%= customer.followings.count %></td>
-              <td>フォロワー数: <%= customer.followers.count %></td>
-             </tr>
-          <% end %>
-        </tbody>
-      </table>
-          <% else %>
-            <h2>フォロー会員はいません</h2>
-          <% end %>
-          <%= link_to '戻る', customer_path(@customer.id), class:"btn btn-outline-dark" %><br>
+  <% if @customers.exists? %>
+    <h2>フォロワー会員</h>
+  <table class="table table-bordered">
+    <thead>
+      <tr class="table-active">
+        <th>写真</th>
+        <th>名前</th>
+        <th>自己紹介</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td>
+            <% if customer.image.attached? %>
+        　      <%= image_tag customer.image, size: "100x100" %>
+             <% else %>
+               <%= image_tag 'no_image.jpg' %>
+            <% end %>
+          </td>
+          <td><%= customer.name %></td>
+          <td><%= customer.introduction %></td>
+          <td>フォロー数: <%= customer.followings.count %></td>
+          <td>フォロワー数: <%= customer.followers.count %></td>
+         </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+    <h2>フォロー会員はいません</h2>
+  <% end %>
+    <%= link_to '戻る', customer_path(@customer.id), class:"btn btn-info" %><br>
 </div>

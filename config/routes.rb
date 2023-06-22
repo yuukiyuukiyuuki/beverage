@@ -17,6 +17,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   #顧客部分
   scope module: :public do
     root to: 'homes#top'
+    get '/about' => 'homes#about'
 
     #ドリンク
     resources :drinks do
@@ -58,6 +59,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
         patch 'withdraw'
      end
     end
+
+    #検索
+    get "search" => "searches#search"
 
   end
 

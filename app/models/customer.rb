@@ -24,11 +24,12 @@ class Customer < ApplicationRecord
     end
   end
 
+  #退会機能
   def active_for_authentication?
     super && (self.is_deleted != true) # nilが入る可能性があるため
   end
 
-  #検索時
+  #会員検索時
   def self.looks(search, word)
     if search == "perfect_match"
       @customer = Customer.where("name LIKE?", "#{word}")

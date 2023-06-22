@@ -1,29 +1,31 @@
 <div class="container">
-    <h2>いいね一覧</h2>
-      <table class="table table-bordered">
-        <thead>
-          <tr class="table-active">
-            <th>写真</th>
-            <th>ドリンク名</th>
-            <th>ドリンクの説明</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @favorite_drinks.each do |drink|%>
-            <tr>
-              <td>
-                <%= link_to drink_path(drink.id) do %>
-                  <% if drink.image.attached? %>
-        　          <%= image_tag drink.image, size: "100x100" %>
-                  <% else %>
-        　          <%= image_tag 'no_image.jpg' %>
-                  <% end %>
-                <% end %>
-              </td>
-              <td><%= drink.name %></td>
-              <td><%= drink.introduction %></td>
-            </tr>
+  <h2>いいね一覧</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr class="table-active">
+        <th>写真</th>
+        <th>ドリンク名</th>
+        <th>ドリンクの説明</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @favorite_drinks.each do |drink|%>
+      <tr>
+        <td>
+          <%= link_to drink_path(drink.id) do %>
+            <% if drink.image.attached? %>
+        　    <%= image_tag drink.image, size: "100x100" %>
+            <% else %>
+        　    <%= image_tag 'no_image.jpg' %>
+            <% end %>
           <% end %>
-      </table>
-      <%= link_to '戻る', customer_path(@customer.id), class:"btn btn-outline-dark" %><br>
+        </td>
+        <td><%= drink.name %></td>
+        <td><%= drink.introduction %></td>
+      </tr>
+    <% end %>
+    </table>
+    <div class="actions">
+      <%= link_to '戻る', customer_path(@customer.id), class:"btn btn-info" %><br>
+    </div>
 </div>
