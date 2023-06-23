@@ -1,21 +1,23 @@
-<table class='table'>
-  <tr>
-    <% if customer.image.attached? %>
-      <%= image_tag customer.image, size: "100x100" %>
-    <% else %>
-      <%= image_tag 'no_image' %>
-    <% end %>
-  </tr>
-  <tr>
-    <th>名前</th>
-    <th><%= customer.name %></th>
-  </tr>
-  <tr>
-    <th>自己紹介</th>
-    <th><%= customer.introduction %></th>
-  </tr>
-</table>
-  <% if customer == current_customer %>
+<div class="card">
+  <div class="card-body">
+    <table class='table'>
+      <tr>
+        <% if customer.image.attached? %>
+          <%= image_tag customer.image, size: "100x100" %>
+        <% else %>
+          <%= image_tag 'no_image' %>
+        <% end %>
+      </tr>
+      <tr>
+        <th>名前</th>
+        <th><%= customer.name %></th>
+      </tr>
+      <tr>
+        <th>自己紹介</th>
+        <th><%= customer.introduction %></th>
+      </tr>
+    </table>
+    <% if customer == current_customer %>
     <table class='table'>
       <tr>
         <th>フォロー</th>
@@ -28,7 +30,9 @@
     </table>
     <div class="actions">
       <%= link_to '編集', edit_customer_path(customer), class:"btn btn-info" %>
-      <%=link_to"お気に入り", favorites_customer_path(customer), class:"btn btn-info" %>
+    </div>
+    <div class="actions">
+      <%=link_to"いいね一覧", favorites_customer_path(customer), class:"btn btn-info" %>
     </div>
   <% else %>
     <div class='row'>
@@ -44,10 +48,12 @@
       </table>
   <% unless current_customer == customer %>
     <% if current_customer.following?(customer) %>
-      <%= link_to 'フォローを外す', customer_relationships_path(customer), method: :delete %>
+      <%= link_to 'フォローを外す', customer_relationships_path(customer), method: :delete, class: "btn btn-outline-success" %>
     <% else %>
-      <%= link_to 'フォローする', customer_relationships_path(customer), method: :post %>
+      <%= link_to 'フォローする', customer_relationships_path(customer), method: :post, class: "btn btn-outline-success" %>
     <% end %>
     <% end %>
     </div>
   <% end %>
+  </div>
+</div>

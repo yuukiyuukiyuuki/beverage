@@ -5,16 +5,18 @@
     </div>
   </div>
   <div class="row">
-    <dl class="col-4">
-      <dt>
-        <% if @drink.image.attached? %>
-      　  <%= image_tag @drink.image, size: "300x300" %>
-        <% else %>
-      　  <%= image_tag 'no_image.jpg', size: "300x300" %>
-        <% end %>
-      </dt>
-      <dt>会員名：<%= @customer.name %></dt>
-    </dl>
+    <div class="col-4">
+      <tr>
+        <th>
+          <% if @drink.image.attached? %>
+      　    <%= image_tag @drink.image, size: "300x300" %>
+          <% else %>
+      　    <%= image_tag 'no_image.jpg', size: "300x300" %>
+          <% end %>
+        </th><br>
+        <th>会員名：<%= @customer.name %></th>
+      </tr>
+    </div>
     <div class="col">
       <dl class="dl">
         <dt>ドリンク名</dt>
@@ -26,7 +28,7 @@
         <!--コメント機能-->
         <%= render 'drink_comment', drink: @drink %>
         <!-- コメントフォーム -->
-        <%= render 'form', drink: @drink %>
+        <%= render 'form', drink: @drink, drink_comment: @drink_comment %>
       </dl>
     </div>
   </div>

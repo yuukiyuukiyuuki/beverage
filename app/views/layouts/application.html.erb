@@ -10,23 +10,17 @@
     <%= stylesheet_link_tag 'custom' %>
   </head>
 
-  <div class="wrap">
-  <header>
-    <%= render 'layouts/header' %>
-  </header>
-
   <body>
+    <!--ヘッダー -->
+    <%= render 'layouts/header' %>
+    <!--フラッシュメッセージ-->
     <div class="container" id="flash_message">
       <%= render 'layouts/flash_messages' %>
     </div>
-      <%= yield %>
-  <footer class="bg-info text-center text-lg-start">
-    <div class="text-center p-3" style="background-color:#0097b2">
-      © 2023 SAMPLE:
-      <a class="text-dark" href="https://mdbootstrap.com/">BEVERAGE.com</a>
-    </div>
-  </footer>
+    <!--メインコンテンツ-->
+    <%= yield %>
+    <!-- フッター -->
+      <%= render 'layouts/footer' %>
   </body>
-  </div>
 </html>
 

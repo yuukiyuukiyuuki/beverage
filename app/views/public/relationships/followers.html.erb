@@ -15,10 +15,12 @@
       <% @customers.each do |customer| %>
         <tr>
           <td>
-            <% if customer.image.attached? %>
-        　      <%= image_tag customer.image, size: "100x100" %>
-             <% else %>
-               <%= image_tag 'no_image.jpg' %>
+            <%= link_to customer_path(customer.id) do %>
+              <% if customer.image.attached? %>
+        　       <%= image_tag customer.image, size: "100x100" %>
+              <% else %>
+                <%= image_tag 'no_image.jpg' %>
+              <% end %>
             <% end %>
           </td>
           <td><%= customer.name %></td>

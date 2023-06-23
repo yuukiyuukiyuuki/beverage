@@ -1,12 +1,12 @@
 <dd>
-  <% if @drink.favorited?(current_customer) %>
-    <%= link_to drink_favorites_path(@drink.id), method: :delete, local: true do %>
-  <i class="far fa-heart">♥<%= @drink.favorites.count %></i>
+  <% if drink.favorited?(current_customer) %>
+    <%= link_to drink_favorites_path(drink.id), method: :delete, local: true do %>
+  <i class="far fa-heart">♥<%= drink.favorites.count %></i>
     <% end %>
   <% else %>
-    <%= link_to drink_favorites_path(@drink.id), method: :post, local: true do %>
-  <i class="far fa-heart">♡<%= @drink.favorites.count %></i>
+    <%= link_to drink_favorites_path(drink.id), method: :post, local: true do %>
+  <i class="far fa-heart">♡<%= drink.favorites.count %></i>
     <% end %>
   <% end %>
 </dd><br>
-<dd>コメント件数 : <%= @drink.drink_comments.count %></dd>
+<dd>コメント件数 : <%= drink.drink_comments.count %></dd>
