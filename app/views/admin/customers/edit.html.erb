@@ -19,17 +19,21 @@
           </tr>
           <tr>
             <th>ステータス</th>
-            <td><% if @customer.is_deleted == true %>
-                  <%= "退会" %>
-                <% else %>
-                  <%= "有効" %>
-                <% end %></td>
+            <td>
+              <% if @customer.is_deleted == true %>
+                <%= "退会" %>
+              <% else %>
+                <%= "有効" %>
+              <% end %>
+            </td>
           </tr>
         </tbody>
       </table>
       <% end %>
     </div>
   </div>
+  <div class="actions">
     <%= link_to "退会", confirm_withdraw_admin_customers_path(customer_id: @customer.id), class: "btn btn-outline-danger" %>
     <%= link_to "戻る", admin_customer_path(@customer.id), class: "btn btn-outline-info" %>
+  </div>
 </div>

@@ -3,8 +3,12 @@
     <tr>
       <td>
         <%= link_to customer_path(drink_comment.customer) do %>
-          <%= image_tag drink_comment.customer.image, size:"50x50" %><br>
-          <%= drink_comment.customer.name %>
+          <% if drink_comment.customer.image.attached? %>
+            <%= image_tag drink_comment.customer.image, size:"50x50" %>
+          <% else %>
+      　     <%= image_tag 'no_image.jpg', size: "50x50" %>
+          <% end %><br>
+            <%= drink_comment.customer.name %>
         <% end %>
           <%= drink_comment.created_at.strftime('%Y/%m/%d') %><br>
       </td>
