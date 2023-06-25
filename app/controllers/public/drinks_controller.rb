@@ -53,7 +53,7 @@ class Public::DrinksController < ApplicationController
   private
 
   def drink_params
-    params.require(:drink).permit(:customer_id, :name, :introduction, :image)
+    params.require(:drink).permit(:customer_id, :name, :introduction, :image, :star)
   end
 
 end

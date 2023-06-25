@@ -20,6 +20,9 @@
             <th>ドリンクの写真</th>
             <th>ドリンク名</th>
             <th>ドリンクの説明</th>
+            <th>ドリンクの評価</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +38,7 @@
             </td>
             <td><%= drink.name %></td>
             <td><%= drink.introduction %></td>
+            <td>評価 :<%= drink.star%>点</td>
             <% if @customer == current_customer %>
               <td><%= link_to '編集', edit_drink_path(drink.id), class: "btn btn-info" %></td>
               <td><%= link_to '削除', drink_path(drink.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>

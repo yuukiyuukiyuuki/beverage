@@ -1,23 +1,36 @@
 <div class="container">
   <h1>ドリンクの新規投稿</h1>
-
   <%= form_with model: @drink, url: drinks_path, local: true do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
     <div class="field">
       ドリンク名<br/>
       <%= f.text_field :name, class: "form-control", style: "border-color: #ccc; width: 250px; margin: 15px 0px;" %>
     </div>
-
     <div class="field">
       ドリンクの画像<br/>
       <%= f.file_field :image, accept: "image/*", style: "margin: 10px 0px;" %>
     </div>
-
     <div class="field">
       ドリンクの説明文<br/>
       <%= f.text_area :introduction, class: "form-control", style: "border-color: #ccc; width: 250px; margin: 15px 0px;" %>
     </div>
-
-    <p><%= f.submit "ドリンクの登録", class: "btn btn-info" %></p>
+    <!--レビューの星 -->
+    <div class="form-group row" id="star">
+      <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
+      <%= f.hidden_field :star, id: :review_star %>
+　　</div>
+    <script>
+　　$('#star').empty();
+    $('#star').raty({
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+ 　 　　scoreName: 'drink[star]',
+      half: false,
+    });
+    </script>
+    <div class="field">
+      <p><%= f.submit "ドリンクの登録", class: "btn btn-info" %></p>
+    </div>
   <% end %>
 </div>

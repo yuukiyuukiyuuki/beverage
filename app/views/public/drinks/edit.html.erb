@@ -14,6 +14,21 @@
     <%= f.label :ドリンクの説明 %>
     <%= f.text_area :introduction, class: "form-control introduction" %>
   </div>
+  <!--レビューの星 -->
+    <div class="form-group row" id="star">
+      <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
+      <%= f.hidden_field :star, id: :review_star %>
+　　</div>
+    <script>
+　　$('#star').empty();
+    $('#star').raty({
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+ 　 　　scoreName: 'drink[star]',
+      half: false,
+    });
+    </script>
   <div class="form-group">
     <%= f.submit "変更する", class: "btn btn-info" %>
   </div>

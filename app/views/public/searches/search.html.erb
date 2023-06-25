@@ -3,56 +3,55 @@
   <table class="table table-bordered">
     <!--対象がCustomerの時 -->
     <% if @range == "Customer" %>
-      <thead>
-        <tr class="table-active">
-          <th>会員写真</th>
-          <th>会員名</th>
-          <th>自己紹介</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @customers.each do |customer| %>
-          <tr>
-            <td>
-              <%= link_to customer_path(customer.id) do %>
+      <tr class="table-active">
+        <th>会員写真</th>
+        <th>会員名</th>
+        <th>自己紹介</th>
+      </tr>
+      <% @customers.each do |customer| %>
+        <tr>
+          <th>
+            <%= link_to customer_path(customer.id) do %>
               <% if customer.image.attached? %>
-        　      <%= image_tag customer.image, size: "100x100" %>
+        　       <%= image_tag customer.image, size: "100x100" %>
               <% else %>
-        　      <%= image_tag 'no_image.jpg' %>
+                <%= image_tag 'no_image.jpg' %>
               <% end %>
-              <% end %>
-            </td>
-            <td><%= customer.name %></td>
-            <td><%= customer.introduction %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    <% else %>
-     <!--対象がDrinkの時 -->
-     <thead>
-        <tr class="table-active">
-          <th>ドリンクの写真</th>
-          <th>ドリンク名</th>
-          <th>ドリンクの説明</th>
+            <% end %>
+          </th>
+          <th><%= customer.name %></th>
+          <th><%= customer.introduction %></th>
         </tr>
-      </thead>
-      <tbody>
-        <% @drinks.each do |drink| %>
-          <tr>
-            <td>
-              <%= link_to drink_path(drink.id) do %>
-              <% if drink.image.attached? %>
-        　      <%= image_tag drink.image, size: "100x100" %>
-              <% else %>
-        　      <%= image_tag 'no_image.jpg' %>
-              <% end %>
-              <% end %>
-            </td>
-            <td><%= drink.name %></td>
-            <td><%= drink.introduction %></td>
-          </tr>
-        <% end %>
-      </tbody>
+      <% end %>
+    <!--対象がDrinkの時 -->
+    <% else %>
+    <tr class="table-active">
+      <th>ドリンクの写真</th>
+      <th>ドリンク名</th>
+      <th>ドリンクの説明</th>
+    </tr>
+    <% @drinks.each do |drink| %>
+      <tr>
+        <th>
+          <%= link_to drink_path(drink.id) do %>
+            <% if drink.image.attached? %>
+        　     <%= image_tag drink.image, size: "100x100" %>
+            <% else %>
+        　     <%= image_tag 'no_image.jpg' %>
+            <% end %>
+          <% end %>
+        </th>
+        <th><%= drink.name %></th>
+        <th><%= drink.introduction %></th>
+      </tr>
+    <% end %>
     <% end %>
   </table>
+  <!--対象がCustomerの時 -->
+  <% if @range == "Customer" %>
+     <h4><%= paginate @customers %></h4>
+  <!--対象がDrinkの時 -->
+  <% else %>
+      <h4><%= paginate @drinks %></h4>
+  <% end %>
 </div>

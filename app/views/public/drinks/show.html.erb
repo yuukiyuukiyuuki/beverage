@@ -22,13 +22,30 @@
         <dt>ドリンク名</dt>
           <dd><%= @drink.name %></dd>
         <dt>ドリンクの説明</dt>
-          <dd> <%= @drink.introduction %></dd><br>
-        <!--いいね機能 -->
-        <%= render 'drink_favorite', drink: @drink %>
-        <!--コメント機能-->
+          <dd> <%= @drink.introduction %></dd>
+          <!--いいね機能 -->
+          <%= render 'drink_favorite', drink: @drink %>
+        <!--レビュー機能 -->
+        <dt>
+          <p>評価 :<%= @drink.star%>点</p>
+          <div id="star-rate<%= @drink.id%>"></dt>
+          <script>
+            $('#star-rate<%= @drink.id %>').empty();
+            $('#star-rate<%= @drink.id %>').raty({
+              size      : 36,
+              starOff   : '<%= asset_path('star-off.png') %>',
+              starOn    : '<%= asset_path('star-on.png') %>',
+              half      : false,
+              readOnly: true,
+              score: <%= @drink.star || 0 %>,
+             });
+           </script>
+           <dd>コメント件数 : <%= @drink.drink_comments.count %></dd>
+        <!--コメント機能 -->
         <%= render 'drink_comment', drink: @drink %>
         <!-- コメントフォーム -->
         <%= render 'form', drink: @drink, drink_comment: @drink_comment %>
+        </div>
       </dl>
     </div>
   </div>

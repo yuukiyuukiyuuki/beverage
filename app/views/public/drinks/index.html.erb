@@ -17,6 +17,22 @@
         <h5 class="card-title">ドリンク名：<%= drink.name %></h5>
         <p class="card-text">説明文：<%= drink.introduction %></p>
         <p class="card-text">コメント件数 : <%= drink.drink_comments.count %></p>
+        <p class="card-text">
+          <td>
+          <div id="star-rate<%= drink.id%>"></td>
+          <script>
+            $('#star-rate<%= drink.id %>').empty();
+            $('#star-rate<%= drink.id %>').raty({
+              size      : 36,
+              starOff   : '<%= asset_path('star-off.png') %>',
+              starOn    : '<%= asset_path('star-on.png') %>',
+              half      : false,
+              readOnly: true,
+              score: <%= drink.star || 0 %>,
+            });
+          </script>
+          </div>
+        </p>
       </div>
       </div>
     </div>

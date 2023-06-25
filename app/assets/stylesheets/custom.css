@@ -2,6 +2,12 @@ body {
   background-color: #FFBEDA;
   font-family: Georgia, serif;
   color: #4e3030;
+  position: relative;
+}
+
+main {
+  padding-top: 20px;
+  padding-bottom: 60px;
 }
 
 /*ボタン*/
@@ -29,4 +35,5 @@ footer{
   bottom: 0;
   width: 100%;
   margin-top: auto;
+  position: fixed;
 }
