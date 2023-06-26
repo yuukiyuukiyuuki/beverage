@@ -1,11 +1,9 @@
-<dd>
-  <% if drink.favorited?(current_customer) %>
-    <%= link_to drink_favorites_path(drink.id), method: :delete, local: true do %>
+<% if drink.favorited?(current_customer) %>
+  <%= link_to drink_favorites_path(drink.id), method: :delete, remote: true do %>
   <i class="far fa-heart">♥<%= drink.favorites.count %>いいね</i>
-    <% end %>
-  <% else %>
-    <%= link_to drink_favorites_path(drink.id), method: :post, local: true do %>
+<% end %>
+<% else %>
+  <%= link_to drink_favorites_path(drink.id), method: :post, remote: true do %>
   <i class="far fa-heart">♡<%= drink.favorites.count %>いいね</i>
-    <% end %>
-  <% end %>
-</dd>
+<% end %>
+<% end %>

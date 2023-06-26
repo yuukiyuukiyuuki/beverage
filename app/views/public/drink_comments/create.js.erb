@@ -1,0 +1,3 @@
+$('#drink-comments').html("<%= j(render "public/drinks/drink_comment", drink: @drink) %>");
+$('#comment_count').html("<%= @drink.drink_comments.count %>")
+$("textarea").val('');

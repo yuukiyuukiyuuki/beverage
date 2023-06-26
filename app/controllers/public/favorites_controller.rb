@@ -5,13 +5,11 @@ class Public::FavoritesController < ApplicationController
     @drink = Drink.find(params[:drink_id])
     favorite = current_customer.favorites.new(drink_id: @drink.id)
     favorite.save
-    redirect_to request.referer
   end
 
   def destroy
     @drink = Drink.find(params[:drink_id])
     favorite = current_customer.favorites.find_by(drink_id: @drink.id)
     favorite.destroy
-    redirect_to request.referer
   end
 end

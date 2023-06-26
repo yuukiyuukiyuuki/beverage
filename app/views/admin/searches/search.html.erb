@@ -13,9 +13,9 @@
           <th>
             <%= link_to admin_customer_path(customer.id) do %>
               <% if customer.image.attached? %>
-      　        <%= image_tag customer.image, size: "100x100" %>
+        　       <%= image_tag customer.image, size: "100x100" %>
               <% else %>
-      　        <%= image_tag 'no_image.jpg' %>
+                <%= image_tag 'no_image.jpg' %>
               <% end %>
             <% end %>
           </th>
@@ -23,11 +23,8 @@
           <th><%= customer.introduction %></th>
         </tr>
       <% end %>
-      <div>
-        <h4><%= paginate @customers %></h4>
-      </div>
-    <% else %>
     <!--対象がDrinkの時 -->
+    <% else %>
     <tr class="table-active">
       <th>ドリンクの写真</th>
       <th>ドリンク名</th>
@@ -38,9 +35,9 @@
         <th>
           <%= link_to admin_drink_path(drink.id) do %>
             <% if drink.image.attached? %>
-        　    <%= image_tag drink.image, size: "100x100" %>
+        　     <%= image_tag drink.image, size: "100x100" %>
             <% else %>
-        　    <%= image_tag 'no_image.jpg' %>
+        　     <%= image_tag 'no_image.jpg' %>
             <% end %>
           <% end %>
         </th>
@@ -48,9 +45,13 @@
         <th><%= drink.introduction %></th>
       </tr>
     <% end %>
-    <div>
-      <h4><%= paginate @drinks %></h4>
-    </div>
     <% end %>
   </table>
+  <!--対象がCustomerの時 -->
+  <% if @range == "Customer" %>
+     <h6><%= paginate @customers %></h6>
+  <!--対象がDrinkの時 -->
+  <% else %>
+      <h6><%= paginate @drinks %></h6>
+  <% end %>
 </div>

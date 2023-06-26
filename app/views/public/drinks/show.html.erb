@@ -13,8 +13,11 @@
           <% else %>
       　    <%= image_tag 'no_image.jpg', size: "300x300" %>
           <% end %>
-        </th><br>
-        <th>会員名：<%= @customer.name %></th>
+        </th>
+        <p>会員名：<%= @customer.name %></p>
+        <% if @customer == current_customer %>
+          <p><%= link_to '編集', edit_drink_path(@drink.id), class: "btn btn-info" %></p>
+        <% end %>
       </tr>
     </div>
     <div class="col">
@@ -24,11 +27,13 @@
         <dt>ドリンクの説明</dt>
           <dd> <%= @drink.introduction %></dd>
           <!--いいね機能 -->
+          <dd id="favorite_buttons_<%= @drink.id %>">
           <%= render 'drink_favorite', drink: @drink %>
+          </dd>
         <!--レビュー機能 -->
         <dt>
           <p>評価 :<%= @drink.star%>点</p>
-          <div id="star-rate<%= @drink.id%>"></dt>
+        <div id="star-rate<%= @drink.id%>"></dt>
           <script>
             $('#star-rate<%= @drink.id %>').empty();
             $('#star-rate<%= @drink.id %>').raty({
@@ -37,14 +42,18 @@
               starOn    : '<%= asset_path('star-on.png') %>',
               half      : false,
               readOnly: true,
-              score: <%= @drink.star || 0 %>,
+              score: <%= @drink.star.blank? ? 0 : @drink.star %>,
              });
-           </script>
-           <dd>コメント件数 : <%= @drink.drink_comments.count %></dd>
-        <!--コメント機能 -->
-        <%= render 'drink_comment', drink: @drink %>
-        <!-- コメントフォーム -->
-        <%= render 'form', drink: @drink, drink_comment: @drink_comment %>
+          </script>
+          <dd>コメント件数 : <span id="comment_count"><%= @drink.drink_comments.count %></span></dd>
+          <!--コメント機能 -->
+          <div id="drink-comments">
+            <%= render 'drink_comment', drink: @drink %>
+          </div>
+          <!-- コメントフォーム -->
+          <div id="comment-form">
+            <%= render 'form', drink: @drink, drink_comment: @drink_comment %>
+          </div>
         </div>
       </dl>
     </div>

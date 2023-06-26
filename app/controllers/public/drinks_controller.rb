@@ -1,7 +1,15 @@
 class Public::DrinksController < ApplicationController
 
   def index
-    @drinks = Drink.all.page(params[:page]).per(8)
+    if params[:latest]
+      @drinks = Drink.latest.page(params[:page]).per(8)
+    elsif params[:old]
+      @drinks = Drink.old.page(params[:page]).per(8)
+    elsif params[:star_count]
+      @drinks = Drink.star_count.page(params[:page]).per(8)
+    else
+      @drinks = Drink.all.page(params[:page]).per(8)
+    end
   end
 
   def show

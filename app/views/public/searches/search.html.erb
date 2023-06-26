@@ -49,9 +49,9 @@
   </table>
   <!--対象がCustomerの時 -->
   <% if @range == "Customer" %>
-     <h4><%= paginate @customers %></h4>
+     <h6><%= paginate @customers %></h6>
   <!--対象がDrinkの時 -->
   <% else %>
-      <h4><%= paginate @drinks %></h4>
+      <h6><%= paginate @drinks %></h6>
   <% end %>
 </div>
