@@ -1,7 +1,6 @@
 body {
   background-color: #FFBEDA;
   font-family: Georgia, serif;
-  color: #4e3030;
   position: relative;
 }
 
@@ -10,10 +9,30 @@ main {
   padding-bottom: 60px;
 }
 
+/*topページ*/
 #top-body {
   background-image: url("https://girlydrop.com/wp-content/uploads/post/p6619.jpg");
   background-size: cover;
   height: 100vh;
+}
+
+.top-text {
+ 	position: relative;
+	top: 20px;
+	color: #0099FF;
+}
+
+/*abouページ*/
+#about-body {
+  background-image: url(https://img.freepik.com/free-photo/glass-bottles-of-beer-with-glass-and-ice-on-dark-background_1150-8899.jpg?w=1800&t=st=1687882918~exp=1687883518~hmac=21525ae9fcda74196e1af27c191b965b1ed574702c432c3ed78862615203eda8);
+  background-size: cover;
+  height: 100vh;
+}
+
+.about-text {
+ 	position: relative;
+	top: 20px;
+	color: #EEEEEE;
 }
 
 /*ボタン*/
@@ -44,7 +63,7 @@ footer{
   position: fixed;
 }
 
-
+/*レスポンシブ*/
 @media only screen and (max-width: 767px){
   img{
     width: 100%;
