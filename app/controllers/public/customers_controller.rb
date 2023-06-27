@@ -45,7 +45,7 @@ private
   def ensure_guest_customer
     @customer = Customer.find(params[:id])
     if @customer.name == "guestcustomer"
-      redirect_to customer_path(current_customer) , notice: 'ゲストカスタマーはプロフィール編集画面へ遷移できません。'
+      redirect_to customer_path(current_customer) , notice: 'Guest customers cannot transition to the profile edit screen.'
     end
   end
 end

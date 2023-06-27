@@ -2,6 +2,7 @@
   <div class="col">
     <h1>ドリンクの一覧</h1>
   </div>
+  <!--ソート機能-->
   <p>
     <%= link_to '新しい順', drinks_path(latest: "true"), class: "btn btn-sm btn-outline-primary" %>
     <%= link_to '古い順', drinks_path(old: "true"), class: "btn btn-sm btn-outline-primary" %>
@@ -22,6 +23,7 @@
         <h5 class="card-title"><%= drink.name %></h5>
         <p class="card-text">説明：<%= drink.introduction %></p>
         <p class="card-text">コメント件数 : <span id="comment_count"><%= drink.drink_comments.count %></span></p>
+        <!--レビューの表示-->
         <p class="card-text">
           <td>
           <div id="star-rate<%= drink.id%>"></td>
@@ -43,6 +45,7 @@
       </div>
     </div>
       <% end %>
+  <!--ページネーション-->
   </div>
     <h6><%= paginate @drinks, params: {latest: params[:latest], old: params[:old], star_count: params[:star_count]} %></h6>
 </div>
