@@ -1,6 +1,7 @@
 # beverage
 
 ## サイト概要
+
 ### サイトテーマ
 自分の好みのドリンクを探せたり、ドリンクについて投稿できるサイト
 
@@ -8,6 +9,7 @@
 もともと新商品のドリンクを飲んだり、いろいろなドリンクを飲んだりしていましたが、好みに合わなかったり、
 失敗したりする事がありました。夏の時期になると飲み物の消費量も増えるので、
 事前に商品の情報や評価が分かれば便利だと考え、このテーマにしました。
+
 ### ターゲットユーザ
 - ドリンクが好きな人
 - ドリンクに興味がある人
@@ -22,10 +24,13 @@
 - 好きな投稿に対していいねする時
 - 知りたい情報に対してフォローする時
 - 投稿に対してコメントする時
-## 設計書
+-
+### 設計書
+- [ER図](https://app.diagrams.net/#G1BzHtuhtI_McN5E_2TZEe7C52707uYJCH)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/161TfBp86_2jmI7C1wbCMK6DSnDAqyLqVmy33U0KHPOs/edit#gid=511978234)
+- [アプリケション詳細設計書](https://docs.google.com/spreadsheets/d/168jUnFDpHIdYA0Bo6y8ChFuAPJfD4wW3AeUIBZmsVVk/edit#gid=0)
 
-
-## 開発環境
+### 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
