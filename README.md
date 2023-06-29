@@ -1,5 +1,5 @@
 # beverage
-![BEVERAGE (2)](https://github.com/yuukiyuukiyuuki/beverage/assets/128203554/313deda0-aa6b-4105-a48e-5d6827a801b0)
+<img scr="https://github.com/yuukiyuukiyuuki/beverage/assets/128203554/313deda0-aa6b-4105-a48e-5d6827a801b0" width="70%">
 #
 ## サイト概要
 
