@@ -8,6 +8,7 @@ class Drink < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   validates :introduction, presence: true, length: { maximum: 255 }
 
+# ソート機能
   scope :latest, -> {order(created_at: :desc)}
   scope :old, -> {order(created_at: :asc)}
   scope :star_count, -> {order(star: :desc)}
