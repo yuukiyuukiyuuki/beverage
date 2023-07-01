@@ -2,25 +2,25 @@
   <div class="container">
     <div class="top-text">
       <h4>BEVERAGEで好きなドリンクを探そう</h4>
-      <p>利用者のコメントや星の評価が見れます。</p>
-      <p>ぜひご利用ください。</p>
+      <h5>利用者のコメントや星の評価が見れます。</h5>
+      <h5>ぜひご利用ください。</h5>
     </div>
     <div class="row">
       <div class="col-md-4 mt-5">
-        <h4 style="color:aqua">ゲストの方</h4>
-        <p style="color:teal">ゲストとしてご利用の方は、<br>
+        <h4 style="color:fuchsia">ゲストの方</h4>
+        <p style="color:#009900">ゲストとしてご利用の方は、<br>
           こちらからログインして下さい。</p>
         <%= link_to 'ゲストログイン', customers_guest_sign_in_path, class: "btn btn-secondary sign_in", method: :post %>
       </div>
       <div class="col-md-4 mt-5">
-        <h4 style="color:aqua">登録済みの方</h4>
-        <p style="color:teal">すでに登録済みの方は、<br>
+        <h4 style="color:fuchsia">登録済みの方</h4>
+        <p style="color:#009900">すでに登録済みの方は、<br>
           こちらからログインして下さい。</p>
         <%= link_to 'ログイン',new_customer_session_path,class: "btn btn-info log_in" %>
       </div>
       <div class="col-md-4 mt-5">
-        <h4 style="color:aqua">登録がまだの方</h4>
-        <p style="color:teal">登録がまだの方は、<br>
+        <h4 style="color:fuchsia">登録がまだの方</h4>
+        <p style="color:#009900">登録がまだの方は、<br>
           こちらから新規登録をして下さい。</p>
          <%= link_to '新規登録',new_customer_registration_path, class: "btn btn-success sign_up" %>
       </div>

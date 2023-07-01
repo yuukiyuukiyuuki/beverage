@@ -13,12 +13,12 @@
   <body>
     <!--ヘッダー -->
     <%= render 'layouts/header' %>
-    <!--フラッシュメッセージ-->
-    <div class="container" id="flash_message">
-      <%= render 'layouts/flash_messages' %>
-    </div>
     <!--メインコンテンツ-->
     <main>
+      <!--フラッシュメッセージ-->
+      <div class="container" id="flash_message">
+        <%= render 'layouts/flash_messages' %>
+      </div>
       <%= yield %>
     </main>
     <!-- フッター -->

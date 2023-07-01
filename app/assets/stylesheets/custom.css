@@ -19,7 +19,7 @@ main {
 .top-text {
  	position: relative;
 	top: 20px;
-	color: #0099FF;
+	color: fuchsia;
 }
 
 /*abouページ*/
@@ -32,7 +32,7 @@ main {
 .about-text {
  	position: relative;
 	top: 20px;
-	color: #EEEEEE;
+	color: #FF0461;
 }
 
 /*ボタン*/

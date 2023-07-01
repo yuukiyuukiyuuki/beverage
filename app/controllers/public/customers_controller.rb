@@ -2,13 +2,13 @@ class Public::CustomersController < ApplicationController
   before_action :ensure_guest_customer, only: [:edit]
 
   def index
-    @customers=Customer.all.page(params[:page]).per(8)
+    @customers = Customer.all.page(params[:page]).per(8)
   end
 
   def show
-    @customer=Customer.find(params[:id])
-    @drinks=@customer.drinks
-    @drink=Drink.new
+    @customer = Customer.find(params[:id])
+    @drinks = @customer.drinks
+    @drink = Drink.new
   end
 
   def edit
