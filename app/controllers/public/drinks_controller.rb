@@ -24,6 +24,7 @@ class Public::DrinksController < ApplicationController
 
   def create
     @drink = current_customer.drinks.build(drink_params)
+    @drink.score = Language.get_data(drink_params[:introduction])
     if @drink.save
       flash[:notice] = "success"
       redirect_to drinks_path

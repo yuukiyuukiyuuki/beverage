@@ -26,6 +26,7 @@
           <dd><%= @drink.name %></dd>
         <dt>ドリンクの説明</dt>
           <dd> <%= @drink.introduction %></dd>
+          <span class="sentiment-score">本文の感情分析スコア<%= @drink.score %></span>
           <!--いいね機能 -->
           <dd id="favorite_buttons_<%= @drink.id %>">
           <%= render 'drink_favorite', drink: @drink %>
