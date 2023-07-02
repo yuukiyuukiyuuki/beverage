@@ -22,6 +22,20 @@
       <div class="card-body">
         <h5 class="card-title"><%= drink.name %></h5>
         <p class="card-text">説明：<%= drink.introduction %></p>
+        <!--自然言語処理-->
+        <span class="sentiment-score">感情評価
+        <% if drink.score.nil? %>
+          <%= "😐" %>
+        <% else %>
+          <% if drink.score > 0 %>
+            <%= "😄" %>
+          <% elsif drink.score == 0 %>
+            <%= "😐" %>
+          <% else %>
+            <%= "😞" %>
+          <% end %>
+        <% end %>
+        </span>
         <p class="card-text">コメント件数 : <span id="comment_count"><%= drink.drink_comments.count %></span></p>
         <!--レビューの表示-->
         <p class="card-text">
