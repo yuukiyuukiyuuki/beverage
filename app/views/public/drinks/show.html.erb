@@ -26,6 +26,20 @@
           <dd><%= @drink.name %></dd>
         <dt>ドリンクの説明</dt>
           <dd> <%= @drink.introduction %></dd>
+          <!--自然言語処理-->
+        <span class="sentiment-score">感情評価
+        <% if @drink.score.nil? %>
+          <%= "😐" %>
+        <% else %>
+          <% if @drink.score > 0 %>
+            <%= "😄" %>
+          <% elsif @drink.score == 0 %>
+            <%= "😐" %>
+          <% else %>
+            <%= "😞" %>
+          <% end %>
+        <% end %>
+        </span>
           <!--いいね機能 -->
           <dd id="favorite_buttons_<%= @drink.id %>">
           <%= render 'drink_favorite', drink: @drink %>
