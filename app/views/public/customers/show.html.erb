@@ -10,7 +10,7 @@
         <h2>会員詳細</h2>
       <% end %>
       <!--プロフィール-->
-      <%= render 'info', customer: @customer %><br>
+      <%= render 'info', customer: @customer, rooms: @rooms, room_id: @room_id, room: @room, entry: @entry %><br>
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>投稿ドリンク</h2>

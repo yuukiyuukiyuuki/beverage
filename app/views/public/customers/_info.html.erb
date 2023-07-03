@@ -29,7 +29,7 @@
         </tr>
     </table>
     <div class="actions">
-      <%= link_to '編集', edit_customer_path(customer), class:"btn btn-info" %>
+      <%= link_to "編集", edit_customer_path(customer), class:"btn btn-info" %>
     </div>
     <div class="actions">
       <%=link_to"いいね一覧", favorites_customer_path(customer), class:"btn btn-info" %>
@@ -48,11 +48,30 @@
       </table>
   <% unless current_customer == customer %>
     <% if current_customer.following?(customer) %>
-      <%= link_to 'フォローを外す', customer_relationships_path(customer), method: :delete, class: "btn btn-outline-success" %>
+      <div class="actions">
+        <%= link_to "フォローを外す", customer_relationships_path(customer), method: :delete, class: "btn btn-outline-success" %>
+      </div>
+    <!--チャットボタンの表示-->
+    <% if (current_customer.following? customer) && (customer.following? current_customer)  %>
+    <% if rooms == true %>
+      <div class="actions">
+        <%= link_to "チャットへ", room_path(room_id), class: "btn btn-outline-info" %>
+      </div>
     <% else %>
-      <%= link_to 'フォローする', customer_relationships_path(customer), method: :post, class: "btn btn-outline-success" %>
+      <%= form_for room do |f| %>
+        <%= fields_for entry do |entry| %>
+          <%= entry.hidden_field :customer_id, value: customer.id %>
+        <% end %>
+        <div class="actions">
+          <%= f.submit "チャットを始める", class: "btn btn-outline-info" %>
+        </div>
+      <% end %>
     <% end %>
     <% end %>
+    <% else %>
+      <%= link_to "フォローする", customer_relationships_path(customer), method: :post, class: "btn btn-outline-success" %>
+    <% end %>
+  <% end %>
     </div>
   <% end %>
   </div>

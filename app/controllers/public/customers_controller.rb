@@ -9,6 +9,24 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @drinks = @customer.drinks
     @drink = Drink.new
+    @current_entry=Entry.where(customer_id: current_customer.id)
+    @another_entry=Entry.where(customer_id: @customer.id)
+    if @customer.id == current_customer.id
+    else
+      @current_entry.each do |currentcustomer|
+        @another_entry.each do |customer|
+          if currentcustomer.room_id == customer.room_id
+            @rooms = true
+            @room_id = currentcustomer.room_id
+          end
+        end
+      end
+      if @rooms
+      else
+        @room = Room.new
+        @entry = Entry.new
+      end
+    end
   end
 
   def edit
