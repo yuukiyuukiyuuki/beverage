@@ -94,24 +94,26 @@ main {
 
 
 /*チャットルーム*/
-/*.chat-room {*/
+.chat-room {
+  text-align: right;
+  max-width: 80%;
+  font-size: 20px;
+}
 
-/*}*/
 
-
-.balloon6 {
+.partner {
   width: 100%;
   margin: 10px 0;
   overflow: hidden;
 }
 
-.balloon6 .chat-name {
+.partner .another-name {
   float: left;
   margin-right: -50px;
   width: 40px;
 }
 
-.balloon6 .chatting {
+.partner .chatting {
   width: 100%;
   text-align: left;
 }
@@ -152,7 +154,7 @@ main {
   max-width: 250px;
   border-radius: 12px;
   background: #30e852;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .mycomment p:after {

@@ -1,4 +1,3 @@
-<div class="chat-room">
 <% @entries.each do |entry| %>
   <% if @customer_id != entry.customer.id %>
     <h2><%= entry.customer.name %>さんとのトークルーム</h2>
@@ -7,33 +6,35 @@
 <div class="actions">
   <%= link_to "会員一覧に戻る", customers_path, class: "btn btn-outline-info" %>
 </div>
-<!--チャットのコメント部分-->
-<% if @messages.present? %>
-  <% @messages.each do |message| %>
-    <% if @customer_id == message.customer.id  %>
-      <div class="mycomment">
-        <h6><%= message.customer.name %></h6>
-        <p><%= message.message %></p>
-      </div>
-    <% else %>
-      <div class="balloon6">
-        <div class="faceicon">
-          <p><%= message.customer.name %></p>
+<div class="container">
+  <div class="chat-room">
+  <% if @messages.present? %>
+    <% @messages.each do |message| %>
+      <% if @customer_id == message.customer.id  %>
+        <div class="mycomment">
+          <h6><%= message.customer.name %></h6>
+          <p><%= message.message %></p>
         </div>
-        <div class="chatting">
-          <div class="says">
-            <p><%= message.message %></p>
+      <% else %>
+        <div class="partner">
+          <div class="another-name">
+            <p><%= message.customer.name %></p>
+          </div>
+          <div class="chatting">
+            <div class="says">
+              <p><%= message.message %></p>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
-  <div class="chat-form">
-    <%= form_for @message do |f| %>
-      <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 50, class: "form-text-field" %>
-      <%= f.hidden_field :room_id, value: @room.id %>
-      <%= f.submit "投稿",class: "btn btn-outline-success"%>
-    <% end %>
+    <div class="chat-form">
+      <%= form_for @message do |f| %>
+        <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 50, class: "form-text-field" %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <%= f.submit "投稿",class: "btn btn-outline-success"%>
+      <% end %>
+    </div>
   </div>
 </div>
