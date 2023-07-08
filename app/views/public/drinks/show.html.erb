@@ -26,8 +26,8 @@
           <dd><%= @drink.name %></dd>
         <dt>ドリンクの説明</dt>
           <dd> <%= @drink.introduction %></dd>
-          <!--自然言語処理-->
-        <span class="sentiment-score">感情評価
+        <!--自然言語処理-->
+        <span class="sentiment-score">感情での評価
         <% if @drink.score.nil? %>
           <%= "😐" %>
         <% else %>

@@ -27,6 +27,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
         resource :favorites, only: [:create, :destroy]
     end
 
+    # メッセージ
+    resources :messages, only: [:create]
+
+    # ルーム
+    resources :rooms, only: [:create,:show]
+
     #顧客
     resources :customers, only: [:index, :show, :edit, :update] do
       member do
