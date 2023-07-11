@@ -15,3 +15,4 @@ Turbolinks.start()
 ActiveStorage.start()
 window.$ = window.jQuery = require('jquery');
 import '../packs/raty.js'
+import '../packs/swiper.js'
